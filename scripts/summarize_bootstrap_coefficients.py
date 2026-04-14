@@ -1,3 +1,5 @@
+import numpy as np
+
 def summarize_bootstrap_coefficients(coef_matrix, gene_names, threshold_ratio=0.9):
 
     n_bootstrap, n_features = coef_matrix.shape
