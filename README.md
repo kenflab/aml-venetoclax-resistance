@@ -2,6 +2,8 @@
 
 Code and resources to support the main bootstrap-based L1-logistic-regression analysis used in this study.
 
+![Workflow overview of the bootstrap-based L1-logistic-regression analysis](figures/readme_workflow.png)
+
 ---
 
 ## Overview
