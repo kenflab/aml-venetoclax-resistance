@@ -13,7 +13,7 @@ Its purpose is to improve transparency and reproducibility of the main computati
 
 ## Repository Contents
 
-### `run_bootstrap_iteration.py`
+### [`run_bootstrap_iteration.py`](https://github.com/kenflab/aml-venetoclax-resistance/blob/main/scripts/run_bootstrap_iteration.py)
 Runs a single bootstrap iteration of **L1-regularized logistic regression**.
 
 This step:
@@ -22,7 +22,7 @@ This step:
 - fits an L1-penalized logistic regression model,
 - returns the selected-feature mask (`|coef| > epsilon`), coefficients, and out-of-bag (OOB) sample indices.
 
-### `fit_lasso_logistic_bootstrap.py`
+### [`fit_lasso_logistic_bootstrap.py`](https://github.com/kenflab/aml-venetoclax-resistance/blob/main/scripts/fit_lasso_logistic_bootstrap.py)
 Runs repeated bootstrap iterations in parallel.
 
 This step:
@@ -30,7 +30,7 @@ This step:
 - collects coefficients across iterations,
 - returns a coefficient matrix of shape `(n_bootstrap × n_features)` and the OOB index list.
 
-### `summarize_bootstrap_coefficients.py`
+### [`summarize_bootstrap_coefficients.py`](https://github.com/kenflab/aml-venetoclax-resistance/blob/main/scripts/summarize_bootstrap_coefficients.py)
 Summarizes bootstrap results across iterations.
 
 This step:
@@ -39,6 +39,14 @@ This step:
 - identifies features passing a user-defined selection threshold,
 - returns summary statistics for downstream interpretation.
 
+### `reproduce_main_analysis.py`
+Runs the main synthetic-data example from start to finish.
+
+This script:
+- loads the example input files,
+- runs bootstrap-based L1-logistic regression,
+- summarizes feature stability across bootstrap iterations,
+- writes analysis outputs to the `results/` directory.
 ---
 
 ## Analysis Outline
@@ -49,6 +57,36 @@ The core workflow is:
 2. Run bootstrap-based L1-logistic regression across repeated resamples.
 3. Summarize selection frequency and coefficient stability across bootstrap iterations.
 4. Identify robustly selected features.
+
+---
+
+## Installation
+
+Clone the repository and create a clean virtual environment:
+
+```bash
+git clone https://github.com/kenflab/aml-venetoclax-resistance
+cd aml-venetoclax-resistance
+
+python3 -m venv .venv
+source .venv/bin/activate   # macOS / Linux
+# .venv\Scripts\activate    # Windows
+
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### Run the Main Reproducible Example
+To run the main synthetic-data analysis:
+```bash
+python reproduce_main_analysis.py
+```
+
+This command writes the following files to the results/ directory:
+- bootstrap_coefficients.csv
+- bootstrap_feature_summary.csv
+- selected_features.json
+- analysis_metadata.json
 
 ---
 
