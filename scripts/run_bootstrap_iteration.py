@@ -1,3 +1,4 @@
+import numpy as np
 from collections import defaultdict
 from sklearn.linear_model import LogisticRegression
 from joblib import Parallel, delayed
