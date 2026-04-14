@@ -129,7 +129,6 @@ print(X.shape, y.shape)
 print(X.head(3))
 print(y[:10])
 ```
-print(y[:10])
 
 ---
 
