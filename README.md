@@ -39,7 +39,7 @@ This step:
 - identifies features passing a user-defined selection threshold,
 - returns summary statistics for downstream interpretation.
 
-### `reproduce_main_analysis.py`
+### [`reproduce_main_analysis.py`](https://github.com/kenflab/aml-venetoclax-resistance/blob/main/reproduce_main_analysis.py)
 Runs the main synthetic-data example from start to finish.
 
 This script:
@@ -83,10 +83,10 @@ python reproduce_main_analysis.py
 ```
 
 This command writes the following files to the results/ directory:
-- bootstrap_coefficients.csv
-- bootstrap_feature_summary.csv
-- selected_features.json
-- analysis_metadata.json
+- [bootstrap_coefficients.csv](https://github.com/kenflab/aml-venetoclax-resistance/blob/main/example_results/bootstrap_coefficients.csv)
+- [bootstrap_feature_summary.csv](https://github.com/kenflab/aml-venetoclax-resistance/blob/main/example_results/bootstrap_feature_summary.csv)
+- [selected_features.json](https://github.com/kenflab/aml-venetoclax-resistance/blob/main/example_results/selected_features.json)
+- [analysis_metadata.json](https://github.com/kenflab/aml-venetoclax-resistance/blob/main/example_results/analysis_metadata.json)
 
 ---
 
@@ -140,10 +140,10 @@ This repository includes synthetic example data for demonstration and code verif
 - The example data were generated using NumPy random numbers with a fixed seed (42).
 - No real patient or biological data are included in this repository.
 
-- Files are located in the `data/` folder:
-  - `data/X_sample.csv` — Processed feature matrix (rows = samples, columns = genes).  
+- Files are located in the [`data/`](https://github.com/kenflab/aml-venetoclax-resistance/tree/main/data) folder:
+  - [`data/X_sample.csv`](http://github.com/kenflab/aml-venetoclax-resistance/blob/main/data/X_sample.csv) — Processed feature matrix (rows = samples, columns = genes).  
     Values are TPM-normalized, then log-transformed, and **Z-score standardized per gene across samples**.
-  - `data/y_sample.csv` — Labels (`sample_id`, `label`) with binary classes `0/1`.
+  - [`data/y_sample.csv`](https://github.com/kenflab/aml-venetoclax-resistance/blob/main/data/y_sample.csv) — Labels (`sample_id`, `label`) with binary classes `0/1`.
 
 **Shapes**
 - `X_sample.csv`: 30 × 50
